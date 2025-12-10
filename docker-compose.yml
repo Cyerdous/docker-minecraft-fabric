@@ -1,0 +1,20 @@
+services:
+  minecraft-fabric:
+    container_name: 'minecraft-server-fabric'
+    image: 'cyer/minecraft-server-fabric:latest'
+    environment:
+      - PGID=
+      - PUID=
+      - dedicated_ram=
+      - eula=true
+      - TZ=
+      - level-seed= #optional   
+      - version_minecraft= #optional if any of the three are missing we pull the latest appropriate version
+      - version_fabric= #optional
+
+    ports:
+      - 25565:25565
+    volumes:
+      - ${STORAGE}/configs/minecraft:/config
+    
+      
