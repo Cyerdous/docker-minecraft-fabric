@@ -3,11 +3,11 @@ services:
     container_name: 'minecraft-server-fabric'
     image: 'cyer/minecraft-server-fabric:latest'
     environment:
-      - PGID=
-      - PUID=
-      - dedicated_ram=
+      - PGID=1000
+      - PUID=1000
+      - dedicated_ram=2
       - eula=true
-      - TZ=
+      - TZ=${TIMEZONE}
       - level-seed= #optional
       - version_minecraft= #optional if any of the three are missing we pull the latest appropriate version
       - version_fabric= #optional
