@@ -8,13 +8,13 @@ services:
       - dedicated_ram=
       - eula=true
       - TZ=
-      - level-seed= #optional   
+      - level-seed= #optional
       - version_minecraft= #optional if any of the three are missing we pull the latest appropriate version
       - version_fabric= #optional
-
     ports:
       - 25565:25565
     volumes:
       - ${STORAGE}/configs/minecraft:/config
-    
+    stdin_open: true
+    tty: true
       
