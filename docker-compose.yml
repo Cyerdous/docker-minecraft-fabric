@@ -3,19 +3,16 @@ services:
     container_name: 'minecraft-fabric'
     image: 'ghcr.io/cyerdous/minecraft-fabric:main'
     environment:
-      - PGID=1000
-      - PUID=1000
-      - dedicated_ram=2
+      - dedicated_ram=2 # Amount of RAM in GB
       - eula=true
-      - TZ=${TIMEZONE}
-      - level_seed= #optional
-      - level_name= #optional
-      - version_minecraft= #optional if any of the three are missing we pull the latest appropriate version
-      - version_fabric= #optional
+      - level_seed= # Optional
+      - level_name= # Optional
+      - version_minecraft= # Optional 
+      - version_fabric= # Optional
     ports:
       - 25565:25565
+    # - 25575:25575 # Optional, allows for remote command execution
     volumes:
       - ${STORAGE}/configs/minecraft:/config
     stdin_open: true
     tty: true
-      
