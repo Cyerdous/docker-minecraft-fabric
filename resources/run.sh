@@ -14,8 +14,12 @@ fi
 touch /config/banned-ips.json /config/banned-players.json /config/ops.json /config/server.properties /config/usercache.json /config/whitelist.json
 mkdir /config/.fabric /config/libraries /config/logs /config/mods /config/versions /config/worlds
 
-sed -i 's/^level-name=.*$/level-name=${level-name}/g'
-sed -i 's/^level-seed=.*$/level-seed=${level-seed}/g'
+if [ "${level-name:-null}" != null ]; then
+	sed -i "s/^level-name=.*$/level-name=${level-name}/g"
+fi
+if [ "${level-seed:-null}" != null ]; then
+	sed -i "s/^level-seed=.*$/level-seed=${level-seed}/g"
+fi
 
 # use fabric installer to get most recent minecraft version
 readarray -t lines < <(java -jar /fabric-installer-1.1.0.jar help)
