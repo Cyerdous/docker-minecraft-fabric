@@ -35,7 +35,14 @@ services:
 | `*25565:25565`       | Connection used to allow players to join the server.                                                     |
 | `25575:25575`        | Remote Console connection to allow server administrator remote command execution, disabled by default.   |
 | **Volume**           | **Function**                                                                                             |
-| /config              | Where Minecraft should store configuration and world files.                                              |
+| `/config`            | Where Minecraft should store configuration and world files.                                              |
 | **Parameter**        | **Function**                                                                                             |
 | `stdin_open` & `tty` | Allows the server to have an interactive shell, accessible by docker attach or other management software |
+
 \*required
+
+# TODO
+- Configure TZ environment variable
+
+# Changelog
+- 2025-12-11 Initial version
