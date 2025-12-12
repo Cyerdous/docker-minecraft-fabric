@@ -1,7 +1,7 @@
 services:
   minecraft-fabric:
-    container_name: 'minecraft-server-fabric'
-    image: 'cyer/minecraft-server-fabric:latest'
+    container_name: 'minecraft-fabric'
+    image: 'ghcr.io/cyerdous/minecraft-fabric:main'
     environment:
       - PGID=1000
       - PUID=1000

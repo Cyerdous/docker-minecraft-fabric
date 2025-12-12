@@ -38,7 +38,7 @@ fi
 # enable agreeing to the eula from docker run or compose
 echo "eula=${eula}" > /eula.txt
 
-# if "fabric-server-mc.{mcversion=$version_minecraft}-loader.{loaderversion=$version_fabric}-launcher.{launcherversion=1.1.0}.jar does not exist"
+# if jar does not exist
 if [ ! -f "fabric-server-mc.${MCVERSION}-loader.${LOADERVERSION}-launcher.1.1.0.jar" ]; then
 	curl -OJ https://meta.fabricmc.net/v2/versions/loader/${MCVERSION}/${LOADERVERSION}/1.1.0/server/jar
 fi
