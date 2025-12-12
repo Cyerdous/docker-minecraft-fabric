@@ -15,12 +15,12 @@ touch /config/banned-ips.json /config/banned-players.json /config/ops.json /conf
 mkdir /config/.fabric /config/libraries /config/logs /config/mods /config/versions /config/worlds
 
 if [ "${level-name:-null}" != null ]; then
-	echo "Setting server.properties level-name=${level-names}"
-	sed -i "s/^level-name=.*$/level-name=${level-name}/g" /config/server.properties
+	echo "Setting server.properties level-name=${level_name}"
+	sed -i "s/^level-name=.*$/level-name=${level_name}/g" /config/server.properties
 fi
 if [ "${level-seed:-null}" != null ]; then
-	echo "Setting server.properties level-seed=${level-seed}"
-	sed -i "s/^level-seed=.*$/level-seed=${level-seed}/g" /config/server.properties
+	echo "Setting server.properties level-seed=${level_seed}"
+	sed -i "s/^level-seed=.*$/level-seed=${level_seed}/g" /config/server.properties
 fi
 
 # use fabric installer to get most recent minecraft version

@@ -8,7 +8,8 @@ services:
       - dedicated_ram=2
       - eula=true
       - TZ=${TIMEZONE}
-      - level-seed= #optional
+      - level_seed= #optional
+      - level_name= #optional
       - version_minecraft= #optional if any of the three are missing we pull the latest appropriate version
       - version_fabric= #optional
     ports:
