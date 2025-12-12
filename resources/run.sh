@@ -15,9 +15,11 @@ touch /config/banned-ips.json /config/banned-players.json /config/ops.json /conf
 mkdir /config/.fabric /config/libraries /config/logs /config/mods /config/versions /config/worlds
 
 if [ "${level-name:-null}" != null ]; then
+	echo "Setting server.properties level-name=${level-names}"
 	sed -i "s/^level-name=.*$/level-name=${level-name}/g" /config/server.properties
 fi
 if [ "${level-seed:-null}" != null ]; then
+	echo "Setting server.properties level-seed=${level-seed}"
 	sed -i "s/^level-seed=.*$/level-seed=${level-seed}/g" /config/server.properties
 fi
 
@@ -37,12 +39,14 @@ done
 # if server has minecraft version conf
 if [ "${version_minecraft:-null}" != null ]; then
 	## set mcversion to env $version_minecraft
+	echo "Setting Minecraft version to $version_minecraft"
 	MCVERSION=$version_minecraft
 fi
 
 # if server has fabric version conf
 if [ "${version_fabric:-null}" != null ]; then
 	## set loaderversion to env $version_fabric
+	echo "Setting Fabric Loader version to $version_fabric"
 	LOADERVERSION=$version_fabric
 fi
 
@@ -51,9 +55,9 @@ echo "eula=${eula}" > /eula.txt
 
 # if jar does not exist
 if [ ! -f "fabric-server-mc.${MCVERSION}-loader.${LOADERVERSION}-launcher.1.1.0.jar" ]; then
+	echo "Downloading Minecraft fabric server jar"
 	curl -OJ https://meta.fabricmc.net/v2/versions/loader/${MCVERSION}/${LOADERVERSION}/1.1.0/server/jar
+	wait
 fi
-
-wait
 
 java -Xmx${dedicated_ram}G -jar fabric-server-mc.${MCVERSION}-loader.${LOADERVERSION}-launcher.1.1.0.jar nogui
