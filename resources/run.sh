@@ -36,10 +36,7 @@ if [ "${version_fabric:-null}" != null ]; then
 fi
 
 # enable agreeing to the eula from docker run or compose
-if [ ! -f eula.txt ]
-then
-    echo "eula=${eula}" > /eula.txt
-fi
+echo "eula=${eula}" > /eula.txt
 
 # if "fabric-server-mc.{mcversion=$version_minecraft}-loader.{loaderversion=$version_fabric}-launcher.{launcherversion=1.1.0}.jar does not exist"
 if [ ! -f "fabric-server-mc.${MCVERSION}-loader.${LOADERVERSION}-launcher.1.1.0.jar" ]; then
