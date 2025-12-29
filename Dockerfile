@@ -17,6 +17,7 @@ RUN <<LINKS
 	ln -s /config/.fabric /.fabric
 	ln -s /config/libraries /libraries
 	ln -s /config/logs /logs
+	ln -s /config/datapacks /datapacks
 	ln -s /config/mods /mods
 	ln -s /config/versions /versions
 	ln -s /config/banned-ips.json /banned-ips.json

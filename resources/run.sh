@@ -12,7 +12,7 @@ fi
 
 # ensure all files exist
 touch /config/banned-ips.json /config/banned-players.json /config/ops.json /config/server.properties /config/usercache.json /config/whitelist.json
-mkdir /config/.fabric /config/libraries /config/logs /config/mods /config/versions /config/worlds
+mkdir /config/.fabric /config/datapacks /config/libraries /config/logs /config/mods /config/versions /config/worlds
 
 if [ "${level_name:-null}" != null ]; then
 	echo "Setting server.properties level-name=/config/worlds/${level_name}"
