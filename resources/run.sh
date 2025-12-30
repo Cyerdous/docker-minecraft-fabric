@@ -1,5 +1,7 @@
 #!/bin/bash
 
+cd /config
+
 if [ "${dedicated_ram:-0}" -eq 0 ]; then
 	echo "ERROR: No amount of RAM added"
 	exit 1
@@ -11,19 +13,19 @@ if [ "${eula:-0}" != "true" ]; then
 fi
 
 # ensure all files exist
-touch /config/banned-ips.json /config/banned-players.json /config/ops.json /config/server.properties /config/usercache.json /config/whitelist.json
-mkdir /config/.fabric /config/datapacks /config/libraries /config/logs /config/mods /config/versions /config/worlds
+touch server.properties
+mkdir ./worlds
 
 if [ "${level_name:-null}" != null ]; then
 	echo "Setting server.properties level-name=/config/worlds/${level_name}"
-	sed -i "s,^level-name=.*$,level-name=/config/worlds/${level_name},g" /config/server.properties
+	sed -i "s,^level-name=.*$,level-name=/worlds/${level_name},g" ./server.properties
 else
 	echo "Setting server.properties level-name=/config/worlds/world"
-	sed -i "s,^level-name=.*$,level-name=/config/worlds/world,g" /config/server.properties
+	sed -i "s,^level-name=.*$,level-name=/worlds/world,g" ./server.properties
 fi
 if [ "${level_seed:-null}" != null ]; then
 	echo "Setting server.properties level-seed=${level_seed}"
-	sed -i "s/^level-seed=.*$/level-seed=${level_seed}/g" /config/server.properties
+	sed -i "s/^level-seed=.*$/level-seed=${level_seed}/g" ./server.properties
 fi
 
 # use fabric installer to get most recent minecraft version
