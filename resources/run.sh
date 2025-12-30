@@ -17,11 +17,11 @@ touch server.properties
 mkdir ./worlds
 
 if [ "${level_name:-null}" != null ]; then
-	echo "Setting server.properties level-name=/config/worlds/${level_name}"
-	sed -i "s,^level-name=.*$,level-name=/worlds/${level_name},g" ./server.properties
+	echo "Setting server.properties level-name=./worlds/${level_name}"
+	sed -i "s,^level-name=.*$,level-name=worlds/${level_name},g" ./server.properties
 else
-	echo "Setting server.properties level-name=/config/worlds/world"
-	sed -i "s,^level-name=.*$,level-name=/worlds/world,g" ./server.properties
+	echo "Setting server.properties level-name=./worlds/world"
+	sed -i "s,^level-name=.*$,level-name=worlds/world,g" ./server.properties
 fi
 if [ "${level_seed:-null}" != null ]; then
 	echo "Setting server.properties level-seed=${level_seed}"
@@ -56,7 +56,7 @@ if [ "${version_fabric:-null}" != null ]; then
 fi
 
 # enable agreeing to the eula from docker run or compose
-echo "eula=${eula}" > /eula.txt
+echo "eula=${eula}" > eula.txt
 
 # if jar does not exist
 if [ ! -f "fabric-server-mc.${MCVERSION}-loader.${LOADERVERSION}-launcher.1.1.0.jar" ]; then
