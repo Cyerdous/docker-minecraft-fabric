@@ -3,6 +3,7 @@ services:
     container_name: 'minecraft-fabric'
     image: 'ghcr.io/cyerdous/minecraft-fabric:main'
     environment:
+      - TZ=${TIMEZONE}
       - dedicated_ram=2 # Amount of RAM in GB
       - eula=true
       - level_seed= # Optional

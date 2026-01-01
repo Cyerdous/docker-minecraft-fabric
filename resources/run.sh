@@ -12,6 +12,8 @@ if [ "${eula:-0}" != "true" ]; then
 	exit 1
 fi
 
+timedatectl set-timezone $TZ
+
 # ensure all files exist
 touch server.properties
 mkdir ./worlds
