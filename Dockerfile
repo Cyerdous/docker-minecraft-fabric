@@ -1,6 +1,6 @@
 FROM archlinux:base
 
-RUN pacman -Syu openjdk curl libudev
+RUN pacman -Syu --noconfirm jdk-openjdk
 
 EXPOSE 25565
 
