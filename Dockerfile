@@ -14,4 +14,4 @@ RUN chmod +x /run.sh
 
 VOLUME ["/config"]
 
-ENTRYPOINT ["/run.sh"]
+CMD ["/run.sh"]
