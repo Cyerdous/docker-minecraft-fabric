@@ -1,10 +1,6 @@
-FROM eclipse-temurin:25-jdk-alpine-3.23
+FROM archlinux:base
 
-RUN sed -i '2s/^# *//' /etc/apk/repositories
-
-RUN apk add bash
-RUN apk add curl
-RUN apk add libudev-zero
+RUN pacman -Syu openjdk curl libudev
 
 EXPOSE 25565
 
@@ -14,4 +10,4 @@ RUN chmod +x /run.sh
 
 VOLUME ["/config"]
 
-CMD ["/run.sh"]
+ENTRYPOINT ["/run.sh"]
